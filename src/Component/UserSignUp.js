@@ -7,16 +7,21 @@ function UserSignUp() {
   const [password, setPassword] = useState('');
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    console.log('Form data:', { name, email, password });
     try {
+      console.log('Submitting form...');
       const response = await axios.post('http://localhost:3000/users', {
-        name,
-        email,
-        password,
+        user: {
+          name,
+          email,
+          password,
+        },
       });
-      console.log(response.data);
+      console.log('Response:', response.data);
     } catch (error) {
-      console.log(error.response.data);
-      console.log(error);
+      console.log('Error:', error.response.data);
+      console.error('Axios error:', error);
     }
   };
   return (
@@ -42,6 +47,5 @@ function UserSignUp() {
       </form>
     </>
   );
-
 }
 export default UserSignUp;
