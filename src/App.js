@@ -1,7 +1,9 @@
+import UserSignUp from './Component/UserSignUp';
+
 function App() {
   return (
-    <div className="App">
-      <h1>Hello Capstone</h1>
+    <div>
+      <UserSignUp />
     </div>
   );
 }
