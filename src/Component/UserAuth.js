@@ -8,7 +8,7 @@ function UserAuth() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('localhost:3000/users/sign_in', {
+      const response = await axios.post('http://localhost:3000/users/sign_in', {
         email,
         password,
       });
