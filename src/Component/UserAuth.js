@@ -21,12 +21,12 @@ function UserAuth() {
     <>
       <h1>Sign In</h1>
       <form onSubmit={handleSubmit}>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
         {' '}
         <br />
         {' '}
         <br />
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <br />
         {' '}
         <br />
