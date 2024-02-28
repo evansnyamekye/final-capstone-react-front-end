@@ -1,4 +1,5 @@
 import React from 'react';
+import '../Navigation.css';
 
 function Navigation() {
   return (
@@ -10,10 +11,10 @@ function Navigation() {
         </div>
         <div className="tabs">
           <ul>
-            <li><a href="#model">Models</a></li>
-            <li><a href="#lifestyle">Lifestyle</a></li>
-            <li><a href="#shop">Shop</a></li>
-            <li><a href="#drive">Test Drive</a></li>
+            <li><a href="#delete-reservations">DISCOVER PLACES</a></li>
+            <li><a href="#my-reservations">MY RESERVATIONS</a></li>
+            <li><a href="#add-reservations">ADD RESERVATIONS</a></li>
+            <li><a href="#delete-reservations">DELETE RESERVATIONS</a></li>
           </ul>
         </div>
         {/* End of Left Sidebar */}

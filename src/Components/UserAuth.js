@@ -24,6 +24,7 @@ function UserAuth({ setLoggedIn }) {
 
       console.log('Response:', response.data);
       console.log('status:', response.status);
+
       if (response.status === 200) {
         localStorage.setItem('authToken', response.data.token);
         setLoggedIn(true);
