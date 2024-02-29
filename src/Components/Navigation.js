@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Navigation.css';
+import { Link } from 'react-router-dom';
 import '../Home.css';
 
 
@@ -14,14 +15,15 @@ function Navigation() {
           </div>
           <div className="tabs">
             <ul>
-              <li><a href="#delete-reservations">DISCOVER PLACES</a></li>
-              <li><a href="#my-reservations">MY RESERVATIONS</a></li>
-              <li><a href="#add-reservations">ADD RESERVATIONS</a></li>
-              <li><a href="#delete-reservations">DELETE RESERVATIONS</a></li>
+              <li><Link to="/PlaceList">Places</Link></li>
+            <li><Link to="/reserve">Reserve</Link></li>
+              <li><Link to="/my-reservations">My Reservations</Link></li>
+              <li><Link to="/add-place">Add Place</Link></li>
+              <li><Link to="/delete-place">Delete Place</Link></li>
             </ul>
           </div>
         </div>
-        {/* End of Header and Tabs Container */}
+        {/* End of Header and Tabs Containe */}
 
         {/* Start of Social-Icons */}
         <div className="social-icons">
