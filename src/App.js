@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import UserAuth from './Components/UserAuth';
 import UserSignUp from './Components/UserSignUp';
 import Layout from './Components/Layout';
+import PlaceList from './Components/PlaceList';
+import MyReservations from './Components/MyReservations';
 import './App.css';
 
 function App() {
@@ -21,7 +23,13 @@ function App() {
         <Route path="/" element={<UserAuth setLoggedIn={setLoggedIn} />} />
         <Route path="/signup" element={<UserSignUp />} />
         {loggedIn ? (
-          <Route path="/layout" element={<Layout />} />
+          <Route
+            path="/layout"
+            element={<Layout />}
+          >
+            <Route path="placelist" element={<PlaceList />} />
+            <Route path="myreservations" element={<MyReservations />} />
+          </Route>
         ) : null}
       </Routes>
     </Router>
