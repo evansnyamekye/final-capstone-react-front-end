@@ -1,23 +1,27 @@
 import React from 'react';
 import '../Navigation.css';
+import '../Home.css';
+
 
 function Navigation() {
   return (
     <nav className="container">
       {/* Start of Left Sidebar */}
       <div className="sidebar left-sidebar">
-        <div className="header">
-          <a href="#home"><img src="../images/stay.jpg" alt="stay logo" /></a>
+        <div className="header-tabs-container">
+          <div className="header">
+            <a href="#home"><img src="../images/stay.jpg" alt="stay logo" /></a>
+          </div>
+          <div className="tabs">
+            <ul>
+              <li><a href="#delete-reservations">DISCOVER PLACES</a></li>
+              <li><a href="#my-reservations">MY RESERVATIONS</a></li>
+              <li><a href="#add-reservations">ADD RESERVATIONS</a></li>
+              <li><a href="#delete-reservations">DELETE RESERVATIONS</a></li>
+            </ul>
+          </div>
         </div>
-        <div className="tabs">
-          <ul>
-            <li><a href="#delete-reservations">DISCOVER PLACES</a></li>
-            <li><a href="#my-reservations">MY RESERVATIONS</a></li>
-            <li><a href="#add-reservations">ADD RESERVATIONS</a></li>
-            <li><a href="#delete-reservations">DELETE RESERVATIONS</a></li>
-          </ul>
-        </div>
-        {/* End of Left Sidebar */}
+        {/* End of Header and Tabs Container */}
 
         {/* Start of Social-Icons */}
         <div className="social-icons">
@@ -33,6 +37,27 @@ function Navigation() {
         {/* End of Social-Icons */}
       </div>
 
+      {/* Start of Main  Content */}
+      <div className="Center">
+        <h1>StaySpare</h1>
+        <h4>Please select a hotel</h4>
+
+        <div className="slideshow">
+          <button onClick={this.goLeft}>Left</button>
+          <img src={currentImage.src} alt={currentImage.name} />
+          <button onClick={this.goRight}>Right</button>
+        </div>
+
+        <h2>{currentImage.name}</h2>
+        <p>{currentImage.description}</p>
+
+        <div className="social-icons">
+          <Facebook />
+          <Twitter />
+          <Instagram />
+        </div>
+      </div>
+      {/* End of Main Content */}
     </nav>
   );
 }

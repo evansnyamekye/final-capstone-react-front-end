@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import '../Sign-In.css';
 
 function UserAuth({ setLoggedIn }) {
   const [email, setEmail] = useState('');
@@ -47,16 +48,16 @@ function UserAuth({ setLoggedIn }) {
       {' '}
       {/* Display error message */}
       <form onSubmit={handleSubmit}>
-        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input className="mail-border" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <br />
         <br />
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input className="mail-border" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <br />
         <br />
         <button type="submit">Sign In</button>
         <br />
+        <p><Link to="/signup" className="sign-up">Sign Up</Link></p>
       </form>
-      <p><Link to="/signup">Sign Up</Link></p>
     </>
   );
 }
