@@ -3,7 +3,6 @@ import '../Navigation.css';
 import { Link } from 'react-router-dom';
 import '../Home.css';
 
-
 function Navigation() {
   return (
     <nav className="container">
@@ -16,7 +15,7 @@ function Navigation() {
           <div className="tabs">
             <ul>
               <li><Link to="/PlaceList">Places</Link></li>
-            <li><Link to="/reserve">Reserve</Link></li>
+              <li><Link to="/reserve">Reserve</Link></li>
               <li><Link to="/my-reservations">My Reservations</Link></li>
               <li><Link to="/add-place">Add Place</Link></li>
               <li><Link to="/delete-place">Delete Place</Link></li>
@@ -43,7 +42,7 @@ function Navigation() {
       <div className="Center">
         <h1>StaySpare</h1>
         <h4>Please select a hotel</h4>
-
+        {/*
         <div className="slideshow">
           <button onClick={this.goLeft}>Left</button>
           <img src={currentImage.src} alt={currentImage.name} />
@@ -51,13 +50,13 @@ function Navigation() {
         </div>
 
         <h2>{currentImage.name}</h2>
-        <p>{currentImage.description}</p>
+        <p>{currentImage.description}</p> */}
 
-        <div className="social-icons">
+        {/* <div className="social-icons">
           <Facebook />
           <Twitter />
           <Instagram />
-        </div>
+        </div> */}
       </div>
       {/* End of Main Content */}
     </nav>
