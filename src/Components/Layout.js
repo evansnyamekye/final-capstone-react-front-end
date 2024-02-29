@@ -1,14 +1,20 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import Navigation from './Navigation';
-import PlacesList from './PlaceList';
+import '../Navigation.css';
 
 function Layout() {
   return (
-    <div>
-      {/* <h1>StaySpare</h1>
-             <p>This is the main Content of the Hotel application</p> */}
+    <div className="container">
       <Navigation />
-      <PlacesList />
+      {/* Start of Main Content */}
+      <div className="Center">
+        <h1>StaySpare</h1>
+        <Outlet />
+        <h4>Please select a hotel</h4>
+      </div>
+      {/* End of Main Content */}
+
     </div>
   );
 }
