@@ -10,19 +10,19 @@ function Navigation() {
       <div className="sidebar left-sidebar">
         <div className="header-tabs-container">
           <div className="header">
-            <a href="#home"><img src="../images/stay.jpg" alt="stay logo" /></a>
+            <Link to="/"><img src="../images/stay.jpg" alt="stay logo" /></Link>
           </div>
           <div className="tabs">
             <ul>
-              <li><Link to="/PlaceList">Places</Link></li>
+              <li><Link to="placelist">Places</Link></li>
               <li><Link to="/reserve">Reserve</Link></li>
-              <li><Link to="/my-reservations">My Reservations</Link></li>
-              <li><Link to="/add-place">Add Place</Link></li>
+              <li><Link to="myreservations">My Reservations</Link></li>
+              <li><Link to="placelist">Add Place</Link></li>
               <li><Link to="/delete-place">Delete Place</Link></li>
             </ul>
           </div>
         </div>
-        {/* End of Header and Tabs Containe */}
+        {/* End of Header and Tabs Container */}
 
         {/* Start of Social-Icons */}
         <div className="social-icons">
