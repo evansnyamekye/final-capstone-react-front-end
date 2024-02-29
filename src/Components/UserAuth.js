@@ -23,11 +23,17 @@ function UserAuth({ setLoggedIn }) {
         },
       });
 
-      console.log('Response:', response.data);
-      console.log('status:', response.status);
+      console.log('Response Data:', response.data);
+
+      console.log('I want the User ID', response.data.status.data.id);
 
       if (response.status === 200) {
         localStorage.setItem('authToken', response.data.token);
+        localStorage.setItem('userId', response.data.status.data.id);
+
+        const userId = localStorage.getItem('userId');
+        console.log('User ID from local storage:', userId);
+
         setLoggedIn(true);
         navigate('/layout');
       } else {
