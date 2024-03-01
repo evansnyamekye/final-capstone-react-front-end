@@ -55,7 +55,7 @@ function AddPlace() {
         {error}
       </div>
       )}
-      <button type="submit" onClick={handleSubmit} disabled={status === 'loading'}>Add Place</button>
+      <button className="button" type="submit" onClick={handleSubmit} disabled={status === 'loading'}>Add Place</button>
     </div>
   );
 }
