@@ -13,11 +13,37 @@ function Navigation() {
           </div>
           <div className="tabs">
             <ul>
-              <li><Link to="placelist">Places</Link></li>
-              <li><Link to="/reserve">Reserve</Link></li>
-              <li><Link to="myreservations">My Reservations</Link></li>
-              <li><Link to="addplace">Add Place</Link></li>
-              <li><Link to="/delete-place">Delete Place</Link></li>
+              <li>
+
+                <Link to="placelist">
+                  <img src="../images/Places.svg" alt="places" />
+                  Places
+                </Link>
+              </li>
+              <li>
+                <Link to="/reserve">
+                  <img src="../images/Reserve.svg" alt="places" />
+                  Reserve
+                </Link>
+              </li>
+              <li>
+                <Link to="myreservations">
+                  <img src="../images/Myreservations.svg" alt="places" />
+                  My Reservations
+                </Link>
+              </li>
+              <li>
+                <Link to="addPlace">
+                  <img src="../images/add.svg" alt="places" />
+                  Add Place
+                </Link>
+              </li>
+              <li>
+                <Link to="/delete-place">
+                  <img src="../images/delete.svg" alt="places" />
+                  Delete Place
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
