@@ -9,9 +9,8 @@ function Layout() {
       <Navigation />
       {/* Start of Main Content */}
       <div className="Center">
-        <h1>StaySpare</h1>
+        {/* <h1>StaySpare</h1> */}
         <Outlet />
-        <h4>Please select a hotel</h4>
       </div>
       {/* End of Main Content */}
 
