@@ -1,17 +1,38 @@
-import { Routes, Route } from 'react-router-dom';
-import UserAuth from './Component/UserAuth';
-import UserSignUp from './Component/UserSignUp';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import UserAuth from './Components/UserAuth';
+import UserSignUp from './Components/UserSignUp';
+import Layout from './Components/Layout';
+import PlaceList from './Components/PlaceList';
+import MyReservations from './Components/MyReservations';
+import './App.css';
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const authToken = localStorage.getItem('authToken');
+    if (authToken) {
+      setLoggedIn(true);
+    }
+  }, []);
+
   return (
-    <>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<UserAuth />} />
-          <Route path="/signup" element={<UserSignUp />} />
-        </Routes>
-      </div>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<UserAuth setLoggedIn={setLoggedIn} />} />
+        <Route path="/signup" element={<UserSignUp />} />
+        {loggedIn ? (
+          <Route
+            path="/layout"
+            element={<Layout />}
+          >
+            <Route path="placelist" element={<PlaceList />} />
+            <Route path="myreservations" element={<MyReservations />} />
+          </Route>
+        ) : null}
+      </Routes>
+    </Router>
   );
 }
 
