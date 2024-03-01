@@ -35,7 +35,7 @@ function UserAuth({ setLoggedIn }) {
         console.log('User ID from local storage:', userId);
 
         setLoggedIn(true);
-        navigate('/layout');
+        navigate('/layout/placelist');
       } else {
         console.error('Unexpected response status:', response.status);
         setErrorMessage('Invalid Email or password.');
