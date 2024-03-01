@@ -17,7 +17,7 @@ function Navigation() {
               <li><Link to="placelist">Places</Link></li>
               <li><Link to="/reserve">Reserve</Link></li>
               <li><Link to="myreservations">My Reservations</Link></li>
-              <li><Link to="placelist">Add Place</Link></li>
+              <li><Link to="addplace">Add Place</Link></li>
               <li><Link to="/delete-place">Delete Place</Link></li>
             </ul>
           </div>
