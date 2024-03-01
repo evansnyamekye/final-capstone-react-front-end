@@ -23,7 +23,7 @@
   border-radius: 5px;
 }
 
-button {
+.button {
   width: 100%;
   border: rgb(155, 155, 163) 2px solid;
   padding: 10px;
@@ -31,7 +31,7 @@ button {
   color: #000;
 }
 
-button:hover {
+.button:hover {
   background-color: rgb(168, 219, 25);
   color: #fff;
   border: none;
