@@ -6,6 +6,7 @@ import Layout from './Components/Layout';
 import PlaceList from './Components/PlaceList';
 import MyReservations from './Components/MyReservations';
 import './App.css';
+import AddPlace from './Components/AddPlace';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -29,6 +30,7 @@ function App() {
           >
             <Route path="placelist" element={<PlaceList />} />
             <Route path="myreservations" element={<MyReservations />} />
+            <Route path="addPlace" element={<AddPlace />} />
           </Route>
         ) : null}
       </Routes>
