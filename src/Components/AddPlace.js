@@ -33,7 +33,7 @@ function AddPlace() {
   };
 
   return (
-    <div>
+    <div className="form-container">
       <h2>Add Place</h2>
       <form onSubmit={handleSubmit}>
         <input type="text" name="description" placeholder="Description" value={placeData.description} onChange={handleChange} />
@@ -44,7 +44,7 @@ function AddPlace() {
         {' '}
         {/* Add address input */}
         {status === 'failed' && (
-          <div>
+          <div className="error-message">
             Error:
             {' '}
             {error}
