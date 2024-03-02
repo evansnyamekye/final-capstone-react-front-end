@@ -1,0 +1,14 @@
+.delete {
+  /* width: 100%; */
+  border: rgb(155, 155, 163) 2px solid;
+  padding: 10px;
+  border-radius: 5px;
+  color: #000;
+  font-size: medium;
+}
+
+.delete:hover {
+  background-color: rgb(168, 219, 25);
+  color: #fff;
+  border: none;
+}
