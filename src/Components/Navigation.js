@@ -39,7 +39,7 @@ function Navigation() {
                 </Link>
               </li>
               <li>
-                <Link to="/delete-place">
+                <Link to="DeletePlace">
                   <img src="../images/delete.svg" alt="places" />
                   Delete Place
                 </Link>
