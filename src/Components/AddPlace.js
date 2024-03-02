@@ -35,7 +35,7 @@ function AddPlace() {
 
   return (
     <div className="form-container">
-      <h2>Add Place</h2>
+      <h2 className="heading">Add Place</h2>
       <input type="text" name="description" placeholder="Description" value={placeData.description} onChange={handleChange} />
       <br />
       <input type="text" name="photo" placeholder="Photo URL" value={placeData.photo} onChange={handleChange} />
