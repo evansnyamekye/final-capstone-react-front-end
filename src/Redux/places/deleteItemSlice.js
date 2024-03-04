@@ -1,15 +1,18 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const deleteItem = (userId, placeId) => async (dispatch) => {
-  try {
-    await axios.delete(`http://localhost:3000/api/v1/users/${userId}/places/${placeId}`);
-    dispatch({ type: 'deleteItem/deleteItem' });
-  } catch (error) {
-    dispatch({ type: 'deleteItem/deleteItemError', payload: error.response.data });
-  }
-};
-
+export const deleteItem = createAsyncThunk(
+  'deleteItem/deleteItem',
+  async (placeId) => {
+    const userId = localStorage.getItem('userId');
+    try {
+      await axios.delete(`http://localhost:3000/api/v1/users/${userId}/places/${placeId}`);
+      return placeId;
+    } catch (error) {
+      throw Error('Failed to delete place');
+    }
+  },
+);
 const deleteItemSlice = createSlice({
   name: 'deleteItem',
   initialState: {
@@ -19,13 +22,16 @@ const deleteItemSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase('deleteItem/deleteItem', (state) => {
-        state.status = 'succeeded';
-        state.error = null;
+      .addCase(deleteItem.pending, (state) => {
+        state.status = 'loading';
       })
-      .addCase('deleteItem/deleteItemError', (state, action) => {
+      .addCase(deleteItem.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.deleteItem = action.payload;
+      })
+      .addCase(deleteItem.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.payload;
+        state.error = action.error.message;
       });
   },
 });
