@@ -6,6 +6,7 @@ import Layout from './Components/Layout';
 import PlaceList from './Components/PlaceList';
 import MyReservations from './Components/MyReservations';
 import './App.css';
+import DetailsPage from './Components/DetailsPage';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -28,6 +29,7 @@ function App() {
             element={<Layout />}
           >
             <Route path="placelist" element={<PlaceList />} />
+            <Route path="detailsPage/:id" element={<DetailsPage />} />
             <Route path="myreservations" element={<MyReservations />} />
           </Route>
         ) : null}
