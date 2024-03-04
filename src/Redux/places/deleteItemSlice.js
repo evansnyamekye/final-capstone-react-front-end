@@ -13,6 +13,7 @@ export const deleteItem = createAsyncThunk(
     }
   },
 );
+
 const deleteItemSlice = createSlice({
   name: 'deleteItem',
   initialState: {
