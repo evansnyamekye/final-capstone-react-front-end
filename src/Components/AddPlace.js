@@ -3,14 +3,15 @@ import axios from 'axios';
 import '../AddPlace.css';
 
 function AddPlace() {
-  const [placeData, setPlaceData] = useState({
+  const initialPlaceData = {
     description: '',
     photo: '',
     location: '',
     rate: '',
     address: '',
     user_id: localStorage.getItem('userId'),
-  });
+  };
+  const [placeData, setPlaceData] = useState(initialPlaceData);
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState(null);
 
@@ -26,6 +27,7 @@ function AddPlace() {
       const userId = localStorage.getItem('userId');
       await axios.post(`http://localhost:3000/api/v1/users/${userId}/places`, placeData);
       setStatus('succeeded');
+      setPlaceData(initialPlaceData);
     } catch (error) {
       setStatus('failed');
       setError(error.response.data);
