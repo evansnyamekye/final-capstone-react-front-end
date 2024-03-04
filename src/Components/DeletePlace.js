@@ -7,8 +7,8 @@ const DeletePlace = () => {
   const dispatch = useDispatch();
   const places = useSelector((state) => state.places.places);
 
-  const handleDelete = (placeId) => {
-    dispatch(deleteItem(placeId));
+  const handleDelete = (id) => {
+    dispatch(deleteItem(id));
   };
 
   return (
