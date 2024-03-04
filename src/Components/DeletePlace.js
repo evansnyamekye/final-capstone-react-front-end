@@ -6,10 +6,28 @@ import '../DeleteItem.css';
 const DeletePlace = () => {
   const dispatch = useDispatch();
   const places = useSelector((state) => state.places.places);
+  const status = useSelector((state) => state.deleteItem.status);
 
   const handleDelete = (id) => {
     dispatch(deleteItem(id));
   };
+
+  if (places.length === 0) {
+    return <div>No places to delete</div>;
+  }
+
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
+
+  if (status === 'failed') {
+    return (
+      <div>
+        Error:
+        {status.error}
+      </div>
+    );
+  }
 
   return (
     <div className="center">
