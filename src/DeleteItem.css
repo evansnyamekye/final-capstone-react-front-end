@@ -1,5 +1,4 @@
 .delete {
-  /* width: 100%; */
   border: rgb(155, 155, 163) 2px solid;
   padding: 10px;
   border-radius: 5px;
@@ -8,7 +7,7 @@
 }
 
 .delete:hover {
-  background-color: rgb(168, 219, 25);
+  background-color: hsl(0, 80%, 48%);
   color: #fff;
   border: none;
 }
