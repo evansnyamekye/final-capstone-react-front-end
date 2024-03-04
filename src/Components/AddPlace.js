@@ -3,14 +3,15 @@ import axios from 'axios';
 import '../AddPlace.css';
 
 function AddPlace() {
-  const [placeData, setPlaceData] = useState({
+  const initialPlaceData = {
     description: '',
     photo: '',
     location: '',
     rate: '',
     address: '',
     user_id: localStorage.getItem('userId'),
-  });
+  };
+  const [placeData, setPlaceData] = useState(initialPlaceData);
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState(null);
 
@@ -26,6 +27,7 @@ function AddPlace() {
       const userId = localStorage.getItem('userId');
       await axios.post(`http://localhost:3000/api/v1/users/${userId}/places`, placeData);
       setStatus('succeeded');
+      setPlaceData(initialPlaceData);
     } catch (error) {
       setStatus('failed');
       setError(error.response.data);
@@ -35,7 +37,7 @@ function AddPlace() {
 
   return (
     <div className="form-container">
-      <h2>Add Place</h2>
+      <h2 className="heading">Add Place</h2>
       <input type="text" name="description" placeholder="Description" value={placeData.description} onChange={handleChange} />
       <br />
       <input type="text" name="photo" placeholder="Photo URL" value={placeData.photo} onChange={handleChange} />
