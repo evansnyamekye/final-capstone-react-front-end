@@ -1,0 +1,69 @@
+p {
+  color: black;
+}
+
+.myreservationspage {
+  margin-top: auto;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.reservation-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.reservation-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#delete-button {
+  background-color: #f44336;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.reservation-card-detail {
+  transition: transform 2.5s ease;
+  padding: 1rem;
+}
+
+.reservation-card-detail:hover {
+  border: solid 2px #e2dddd;
+  border-radius: 2rem;
+  transform: scale(1.04);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 2rem;
+}
+
+th {
+  border: solid 1px black;
+  padding: 8px;
+  text-align: left;
+  background-color: #f2f2f2;
+}
+
+td {
+  border: solid 1px black;
+  padding: 8px;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #d6d4d4;
+}
