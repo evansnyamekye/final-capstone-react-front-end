@@ -20,12 +20,12 @@ select {
   .form-container {
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     margin: auto;
     width: 88%;
     height: auto;
   }
-  
+
   select {
     padding: 10px 10px;
   }
