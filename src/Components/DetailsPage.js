@@ -51,12 +51,12 @@ function DetailsPage() {
               Address:
               {detailsPage.address}
             </p>
-            <p>
+            <p className="price-per-night">
               Price per night:$
               {detailsPage.pricepernight}
             </p>
             <Link to="/layout/addReservation">
-              <button type="button">Add Reservation</button>
+              <button className="add-res-button" type="button">Add Reservation</button>
             </Link>
           </div>
         </div>
