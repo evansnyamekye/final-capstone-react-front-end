@@ -82,7 +82,7 @@ function PlacesList() {
               <li><a href="https://www.twitter.com/vespa"><img src="https://img.icons8.com/ios/50/000000/instagram-new.png" alt="instagram-icon" /></a></li>
               <li><a href="https://www.twitter.com/vespa"><img src="https://img.icons8.com/ios/50/000000/p.png" alt="p-icon" /></a></li>
             </ul>
-            <Link to={`/detailsPage/${place.id}`}>View Details</Link>
+            <Link to={`/layout/detailsPage/${place.id}`}>View Details</Link>
           </li>
         ))}
         <button type="button" id="next" onClick={nextPage} disabled={currentPage === Math.ceil(places.length / itemsPerPage)}><img src="../images/next.svg" alt="next_button" /></button>
