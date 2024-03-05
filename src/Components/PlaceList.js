@@ -63,7 +63,7 @@ function PlacesList() {
     <div className="center">
       <h1>Accomodations</h1>
       <h5>Select Accomodations to Reserve</h5>
-      <ul>
+      <ul className="ul-list">
         <button type="button" id="previous" onClick={prevPage} disabled={currentPage === 1}><img src="../images/previous.svg" alt="previous" /></button>
         {currentItems.map((place) => (
           <li key={place.id} className="card">
@@ -84,7 +84,7 @@ function PlacesList() {
             Address:
             {place.address.length > 10 ? `${place.address.substring(0, 30)}...` : place.address}
 
-            <ul className="social-icons">
+            <ul className="social-icons-li">
               <li><a href="https://www.twitter.com/vespa"><img src="https://img.icons8.com/ios/50/000000/twitter.png" alt="twitter-icon" /></a></li>
               <li><a href="https://www.facebook.com/vespa"><img src="https://img.icons8.com/ios/50/000000/facebook.png" alt="facebook-icon" /></a></li>
               <li><a href="https://www.instagram.com/vespa"><img src="https://img.icons8.com/ios/50/000000/google.png" alt="twitter-icon" /></a></li>
