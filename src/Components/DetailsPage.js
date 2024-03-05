@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { fetchDetailsPage } from '../Redux/places/detailsPageSlice';
 import '../Placelist.css';
 import '../DetailsPage.css';
@@ -52,6 +52,13 @@ function DetailsPage() {
               Address:
               {detailsPage.address}
             </p>
+            <p>
+              Price per night:$
+              {detailsPage.pricepernight}
+            </p>
+            <Link to="/layout/addReservation">
+              <button type="button">Add Reservation</button>
+            </Link>
           </div>
         </div>
       </div>
