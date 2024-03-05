@@ -1,8 +1,6 @@
 .item-details {
   display: flex;
   flex-direction: column;
-
-  /* align-items: center; */
   justify-content: center;
   transition: transform 2.5s ease;
   padding: 1rem;
@@ -18,8 +16,6 @@
 
 .main {
   display: flex;
-
-  /* align-items: center; */
   justify-content: space-evenly;
   width: 80vw;
 }
@@ -30,6 +26,7 @@
 }
 
 .title {
+  text-align: center;
   font-size: 2em;
   margin-bottom: 10px;
 }
@@ -37,10 +34,6 @@
 .price-section {
   padding: 10px;
   margin-bottom: 10px;
-  color: black;
-}
-
-.price-section p {
   color: black;
 }
 
@@ -55,4 +48,18 @@
 a {
   text-decoration: none;
   color: #000;
+}
+
+.price-per-night {
+  background-color: lightgray;
+  padding: 10px;
+  width: 100%;
+}
+
+.add-res-button {
+  font-size: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #a8db19;
 }
