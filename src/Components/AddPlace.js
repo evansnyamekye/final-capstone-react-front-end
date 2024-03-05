@@ -9,6 +9,7 @@ function AddPlace() {
     location: '',
     rate: '',
     address: '',
+    pricepernight: '',
     user_id: localStorage.getItem('userId'),
   };
   const [placeData, setPlaceData] = useState(initialPlaceData);
@@ -31,33 +32,40 @@ function AddPlace() {
     } catch (error) {
       setStatus('failed');
       setError(error.response.data);
-      console.error('Failed to add place:', error);
     }
   };
 
   return (
     <div className="form-container">
-      <h2 className="heading">Add Place</h2>
-      <input type="text" name="description" placeholder="Description" value={placeData.description} onChange={handleChange} />
-      <br />
-      <input type="text" name="photo" placeholder="Photo URL" value={placeData.photo} onChange={handleChange} />
-      <br />
-      <input type="text" name="location" placeholder="Location" value={placeData.location} onChange={handleChange} />
-      <br />
-      <input type="number" name="rate" placeholder="Rate" value={placeData.rate} onChange={handleChange} />
-      <br />
-      <input type="text" name="address" placeholder="Address" value={placeData.address} onChange={handleChange} />
-      <br />
-      {' '}
-      {/* Add address input */}
-      {status === 'failed' && (
-      <div className="error-message">
-        Error:
+      <h2>Add Place</h2>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="description" placeholder="Description" value={placeData.description} onChange={handleChange} />
+        <br />
+        <input type="text" name="photo" placeholder="Photo URL" value={placeData.photo} onChange={handleChange} />
+        <br />
+        <input type="text" name="location" placeholder="Location" value={placeData.location} onChange={handleChange} />
+        <br />
+        <input type="number" name="rate" placeholder="Rate" value={placeData.rate} onChange={handleChange} />
+        <br />
+        <input type="text" name="address" placeholder="Address" value={placeData.address} onChange={handleChange} />
+        <br />
+        <input type="number" name="pricepernight" placeholder="Price per night" value={placeData.pricepernight} onChange={handleChange} />
         {' '}
-        {error}
-      </div>
-      )}
-      <button className="button" type="submit" onClick={handleSubmit} disabled={status === 'loading'}>Add Place</button>
+        {/* Add address input */}
+        {status === 'failed' && (
+        <div className="error-message">
+          Error:
+          {' '}
+          {error}
+        </div>
+        )}
+        {status === 'succeeded' && (
+          <div className="success-message">
+            Place added successfully!
+          </div>
+        )}
+        <button className="button" type="submit" disabled={status === 'loading'}>Add Place</button>
+      </form>
     </div>
   );
 }
