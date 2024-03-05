@@ -21,7 +21,7 @@ function Navigation() {
                 </Link>
               </li>
               <li>
-                <Link to="/reserve">
+                <Link to="addReservation">
                   <img src="../images/Reserve.svg" alt="places" />
                   Reserve
                 </Link>
