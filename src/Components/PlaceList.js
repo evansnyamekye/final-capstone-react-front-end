@@ -63,14 +63,17 @@ function PlacesList() {
           <li key={place.id} className="card">
             <h3>{place.description}</h3>
             <img className="place-img" src={place.photo} alt={place.description} />
-
-            Location:
-            {place.location}
-
+            <div>
+              Price Per Night:$
+              {place.pricepernight}
+            </div>
+            <div>
+              Location:
+              {place.location}
+            </div>
             Rate:
             <StarRating rating={place.rate} />
             {' '}
-            {/* StarRating component integrated */}
 
             Address:
             {place.address.length > 10 ? `${place.address.substring(0, 30)}...` : place.address}
