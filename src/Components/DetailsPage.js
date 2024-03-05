@@ -5,7 +5,6 @@ import { useParams, Link } from 'react-router-dom';
 import { fetchDetailsPage } from '../Redux/places/detailsPageSlice';
 import '../Placelist.css';
 import '../DetailsPage.css';
-// import '../Navigation.css';
 
 function DetailsPage() {
   const dispatch = useDispatch();
