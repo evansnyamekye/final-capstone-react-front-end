@@ -8,6 +8,8 @@ import MyReservations from './Components/MyReservations';
 import './App.css';
 import DetailsPage from './Components/DetailsPage';
 import AddPlace from './Components/AddPlace';
+import AddReservation from './Components/AddReservation';
+import DeletePlace from './Components/DeletePlace';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -33,6 +35,8 @@ function App() {
             <Route path="detailsPage/:id" element={<DetailsPage />} />
             <Route path="myreservations" element={<MyReservations />} />
             <Route path="addPlace" element={<AddPlace />} />
+            <Route path="addReservation" element={<AddReservation />} />
+            <Route path="deletePlace" element={<DeletePlace />} />
           </Route>
         ) : null}
       </Routes>
