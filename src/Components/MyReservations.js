@@ -35,39 +35,42 @@ function MyReservations() {
   return (
     <div className="myreservationspage">
       <h1>My Reservations</h1>
-      {reservations.map((reservation) => (
-        <ul key={reservation.id} className="reservation-card-container">
-          <div className="reservation-card-detail">
-            <img className="place-img" src={reservation.place.photo} alt={reservation.place.description} />
-            <li>
-              <h2>{reservation.place.description}</h2>
-              <p>
-                <strong>Check-in:</strong>
-                {' '}
-                {reservation.start_date}
-              </p>
-              <p>
-                <strong>Check-out:</strong>
-                {' '}
-                {reservation.end_date}
-              </p>
-              <p>
-                <strong>Price:</strong>
-                {' '}
-                {reservation.price}
-              </p>
-              <button
-                type="button"
-                id="delete-button"
-                onClick={() => handleDelete(reservation.id)}
-              >
-                Delete
-              </button>
-            </li>
-          </div>
-        </ul>
-
-      ))}
+      {reservations.length === 0 ? (
+        <div>No reservations</div>
+      ) : (
+        reservations.map((reservation) => (
+          <ul key={reservation.id} className="reservation-card-container">
+            <div className="reservation-card-detail">
+              <img className="place-img" src={reservation.place.photo} alt={reservation.place.description} />
+              <li>
+                <h2>{reservation.place.description}</h2>
+                <p>
+                  <strong>Check-in:</strong>
+                  {' '}
+                  {reservation.start_date}
+                </p>
+                <p>
+                  <strong>Check-out:</strong>
+                  {' '}
+                  {reservation.end_date}
+                </p>
+                <p>
+                  <strong>Price:$</strong>
+                  {' '}
+                  {reservation.price}
+                </p>
+                <button
+                  type="button"
+                  id="delete-button"
+                  onClick={() => handleDelete(reservation.id)}
+                >
+                  Delete
+                </button>
+              </li>
+            </div>
+          </ul>
+        ))
+      )}
     </div>
   );
 }

@@ -7,6 +7,7 @@ import PlaceList from './Components/PlaceList';
 import MyReservations from './Components/MyReservations';
 import './App.css';
 import AddPlace from './Components/AddPlace';
+import AddReservation from './Components/AddReservation';
 import DeletePlace from './Components/DeletePlace';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
             <Route path="placelist" element={<PlaceList />} />
             <Route path="myreservations" element={<MyReservations />} />
             <Route path="addPlace" element={<AddPlace />} />
+            <Route path="addReservation" element={<AddReservation />} />
             <Route path="deletePlace" element={<DeletePlace />} />
           </Route>
         ) : null}
