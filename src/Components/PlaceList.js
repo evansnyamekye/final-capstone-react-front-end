@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchPlaces } from '../Redux/places/placesSlice';
+import { fetchDetailsPage } from '../Redux/places/detailsPageSlice';
 import '../Placelist.css';
 
 function PlacesList() {
@@ -14,6 +15,11 @@ function PlacesList() {
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
+
+  // Fetch details page function
+  const handleViewDetails = (placeId) => {
+    dispatch(fetchDetailsPage(placeId));
+  };
 
   useEffect(() => {
     if (status === 'idle') {
@@ -63,14 +69,17 @@ function PlacesList() {
           <li key={place.id} className="card">
             <h3>{place.description}</h3>
             <img className="place-img" src={place.photo} alt={place.description} />
-
-            Location:
-            {place.location}
-
+            <div>
+              Price Per Night:$
+              {place.pricepernight}
+            </div>
+            <div>
+              Location:
+              {place.location}
+            </div>
             Rate:
             <StarRating rating={place.rate} />
             {' '}
-            {/* StarRating component integrated */}
 
             Address:
             {place.address.length > 10 ? `${place.address.substring(0, 30)}...` : place.address}
@@ -82,7 +91,9 @@ function PlacesList() {
               <li><a href="https://www.twitter.com/vespa"><img src="https://img.icons8.com/ios/50/000000/instagram-new.png" alt="instagram-icon" /></a></li>
               <li><a href="https://www.twitter.com/vespa"><img src="https://img.icons8.com/ios/50/000000/p.png" alt="p-icon" /></a></li>
             </ul>
-            <Link to={`/layout/detailsPage/${place.id}`}>View Details</Link>
+            <button type="submit" onClick={() => handleViewDetails(place.id)}>
+              <Link to={`/layout/detailsPage/${place.id}`}>View Details</Link>
+            </button>
           </li>
         ))}
         <button type="button" id="next" onClick={nextPage} disabled={currentPage === Math.ceil(places.length / itemsPerPage)}><img src="../images/next.svg" alt="next_button" /></button>

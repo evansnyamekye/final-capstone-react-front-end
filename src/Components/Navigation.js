@@ -21,7 +21,7 @@ function Navigation() {
                 </Link>
               </li>
               <li>
-                <Link to="/reserve">
+                <Link to="addReservation">
                   <img src="../images/Reserve.svg" alt="places" />
                   Reserve
                 </Link>
@@ -39,7 +39,7 @@ function Navigation() {
                 </Link>
               </li>
               <li>
-                <Link to="/delete-place">
+                <Link to="DeletePlace">
                   <img src="../images/delete.svg" alt="places" />
                   Delete Place
                 </Link>
