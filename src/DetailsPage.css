@@ -43,3 +43,16 @@
 .price-section p {
   color: black;
 }
+
+.view-details {
+  font-size: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #a8db19;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
