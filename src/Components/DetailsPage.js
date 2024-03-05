@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { fetchDetailsPage } from '../Redux/places/detailsPageSlice';
 import '../Placelist.css';
-// import '../DetailsPage.css';
+import '../DetailsPage.css';
 // import '../Navigation.css';
 
 function DetailsPage() {
@@ -31,28 +32,45 @@ function DetailsPage() {
   }
 
   return (
-    <div className="center">
-      <h1>Details Page</h1>
-      <img src={detailsPage.photo} alt={detailsPage.name} />
-      {/* <h1>{detailsPage.name}</h1> */}
-      <p>{detailsPage.description}</p>
-      <p>{detailsPage.location}</p>
-      <p>{detailsPage.rate}</p>
-      <p>{detailsPage.address}</p>
-      <p>
-        User ID:
-        {detailsPage.user_id}
-      </p>
-      <p>
-        Created At:
-        {new Date(detailsPage.created_at).toLocaleString()}
-      </p>
-      <p>
-        Updated At:
-        {new Date(detailsPage.updated_at).toLocaleString()}
-      </p>
-    </div>
+    <>
+      <div className="item-details">
+        <div className="main">
+          <div className="image-section">
+            <img className="image" src={detailsPage.photo} alt={detailsPage.description} />
+          </div>
+          <div className="price-section">
+            <h2 className="title">{detailsPage.description}</h2>
+            <p>
+              Location:
+              {detailsPage.location}
+            </p>
+            <p>
+              Rate:
+              <StarRating rating={detailsPage.rate} />
+            </p>
+            <p>
+              Address:
+              {detailsPage.address}
+            </p>
+          </div>
+        </div>
+      </div>
+    </>
+
   );
 }
+
+const StarRating = ({ rating }) => {
+  const stars = Array.from({ length: 5 }, (_, index) => (
+    <span key={index}>{index + 1 <= rating ? '\u2605' : '\u2606'}</span>
+  ));
+
+  return <div>{stars}</div>;
+};
+
+// Prop types validation for StarRating component
+StarRating.propTypes = {
+  rating: PropTypes.number.isRequired,
+};
 
 export default DetailsPage;
