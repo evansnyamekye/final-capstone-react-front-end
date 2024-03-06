@@ -1,3 +1,11 @@
+.add-res-button {
+  font-size: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #a8db19;
+}
+
 .item-details {
   display: flex;
   flex-direction: column;
@@ -20,6 +28,16 @@
   width: 80vw;
 }
 
+.price-per-night {
+  background-color: lightgray;
+  padding: 10px;
+  width: 100%;
+}
+
+.rate {
+  text-align: center;
+}
+
 .image {
   width: 40vw;
   height: 70vh;
@@ -37,35 +55,33 @@
   color: black;
 }
 
-.view-details {
-  font-size: 15px;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #a8db19;
-}
-
-a {
+.link-btn {
   text-decoration: none;
-  color: #000;
-}
-
-.price-per-night {
-  background-color: lightgray;
-  padding: 10px;
-  width: 100%;
-}
-
-.add-res-button {
-  font-size: 15px;
-  padding: 10px;
+  font-size: 16px;
+  transition-duration: 0.4s;
   border: none;
   border-radius: 5px;
-  background-color: #a8db19;
+  padding: 10px 25px;
+  display: inline-block;
+  cursor: pointer;
+  background-color: rgb(151 191 17);
+  color: #fff;
+}
+
+.link-btn:hover {
+  background-color: #fff;
+  border: rgb(151 191 17) solid 1px;
+  color: #000;
 }
 
 /* start of Mobile styles */
 @media only screen and (max-width: 600px) {
+  #previous,
+  #next {
+    padding: 10px;
+    border-radius: 50px;
+  }
+
   .main {
     flex-direction: column;
     align-items: center;
