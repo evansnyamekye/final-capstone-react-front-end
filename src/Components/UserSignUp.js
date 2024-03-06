@@ -3,12 +3,13 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import '../Sign-Up.css';
 
-function UserSignUp() {
+const UserSignUp = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -52,5 +53,6 @@ function UserSignUp() {
       </form>
     </>
   );
-}
+};
+
 export default UserSignUp;
