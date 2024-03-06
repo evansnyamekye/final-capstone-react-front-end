@@ -91,8 +91,8 @@ function PlacesList() {
               <li><a href="https://www.twitter.com/vespa"><img src="https://img.icons8.com/ios/50/000000/instagram-new.png" alt="instagram-icon" /></a></li>
               <li><a href="https://www.twitter.com/vespa"><img src="https://img.icons8.com/ios/50/000000/p.png" alt="p-icon" /></a></li>
             </ul>
-            <button className="view-details" type="submit" onClick={() => handleViewDetails(place.id)}>
-              <Link to={`/layout/detailsPage/${place.id}`}>View Details</Link>
+            <button className="link" type="submit" onClick={() => handleViewDetails(place.id)}>
+              <Link to={`/layout/detailsPage/${place.id}`}><p>View Details</p></Link>
             </button>
           </li>
         ))}
