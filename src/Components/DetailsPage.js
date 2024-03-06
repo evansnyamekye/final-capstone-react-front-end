@@ -6,7 +6,7 @@ import { fetchDetailsPage } from '../Redux/places/detailsPageSlice';
 import '../Placelist.css';
 import '../DetailsPage.css';
 
-function DetailsPage() {
+const DetailsPage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const detailsPage = useSelector((state) => state.detailsPage.detailsPage);
@@ -61,9 +61,8 @@ function DetailsPage() {
         </div>
       </div>
     </>
-
   );
-}
+};
 
 const StarRating = ({ rating }) => {
   const stars = Array.from({ length: 5 }, (_, index) => (
