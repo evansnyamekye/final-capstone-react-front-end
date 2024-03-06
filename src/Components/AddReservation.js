@@ -21,6 +21,7 @@ function AddReservation() {
   const [numberOfDays, setNumberOfDays] = useState(0);
   const status = useSelector((state) => state.addReservation.status);
   const error = useSelector((state) => state.addReservation.error);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const fetchPlaces = async (userId) => {
     try {
@@ -28,7 +29,7 @@ function AddReservation() {
       const data = await response.json();
       setPlaces(data);
     } catch (error) {
-      console.error('Error fetching places:', error);
+      setErrorMessage('Invalid Email or password.');
     }
   };
 
@@ -77,6 +78,7 @@ function AddReservation() {
       }}
     >
       <h2>Add Reservation</h2>
+      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       <input type="date" name="start_date" placeholder="Start Date" value={reservationData.start_date} onChange={handleChange} />
       <br />
       <input type="date" name="end_date" placeholder="End Date" value={reservationData.end_date} onChange={handleChange} />
