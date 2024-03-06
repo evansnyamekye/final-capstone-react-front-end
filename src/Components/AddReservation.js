@@ -110,7 +110,7 @@ function AddReservation() {
       {status === 'succeeded' && (
         <div className="success-message">Reservation added successfully!</div>
       )}
-      <button className="button" type="submit" onClick={handleSubmit} disabled={status === 'loading'}>Add Reservation</button>
+      <button className="link-btn-li" type="submit" onClick={handleSubmit} disabled={status === 'loading'}>Add Reservation</button>
     </div>
   );
 }

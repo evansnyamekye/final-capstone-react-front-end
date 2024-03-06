@@ -30,9 +30,9 @@ const DeletePlace = () => {
   }
 
   return (
-    <div className="center">
+    <div className="delete-place-container">
       <h1>Delete Place</h1>
-      <ul>
+      <ul className="delete-place-card">
         {places.map((place) => (
           <li key={place.id} className="card">
             <h3>{place.description}</h3>

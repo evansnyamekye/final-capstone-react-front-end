@@ -36,7 +36,7 @@ function MyReservations() {
     <div className="myreservationspage">
       <h1>My Reservations</h1>
       {reservations.length === 0 ? (
-        <div>No reservations</div>
+        <p>No reservations</p>
       ) : (
         reservations.map((reservation) => (
           <ul key={reservation.id} className="reservation-card-container">

@@ -64,7 +64,7 @@ function AddPlace() {
             Place added successfully!
           </div>
         )}
-        <button className="button" type="submit" disabled={status === 'loading'}>Add Place</button>
+        <button className="button" type="submit" disabled={status === 'loading'}><p>Add Place</p></button>
       </form>
     </div>
   );
