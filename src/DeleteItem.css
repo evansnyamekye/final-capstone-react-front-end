@@ -11,3 +11,28 @@
   color: #fff;
   border: none;
 }
+
+.delete-place-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .delete-place-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+  }
+
+  .delete-place-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+  }
+}
