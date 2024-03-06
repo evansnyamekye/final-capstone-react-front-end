@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <img src='./public/images/StaySphere.svg" alt="logo" width="140" height="auto"
+  <img src="./public/images/StaySphere.svg" alt="logo" width="140" height="auto" />
   <h1><b> StaySphere </b></h1>
 
 </div>
