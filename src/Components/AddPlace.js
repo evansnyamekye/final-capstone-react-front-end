@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { addPlace } from '../Redux/places/addPlaceSlice';
 import '../AddPlace.css';
 
-function AddPlace() {
+const AddPlace = () => {
+  const dispatch = useDispatch();
+  const status = useSelector((state) => state.addPlace.status);
+  const error = useSelector((state) => state.addPlace.error);
+
   const initialPlaceData = {
     description: '',
     photo: '',
@@ -13,26 +18,14 @@ function AddPlace() {
     user_id: localStorage.getItem('userId'),
   };
   const [placeData, setPlaceData] = useState(initialPlaceData);
-  const [status, setStatus] = useState('idle');
-  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     setPlaceData({ ...placeData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setStatus('loading');
-
-    try {
-      const userId = localStorage.getItem('userId');
-      await axios.post(`http://localhost:3000/api/v1/users/${userId}/places`, placeData);
-      setStatus('succeeded');
-      setPlaceData(initialPlaceData);
-    } catch (error) {
-      setStatus('failed');
-      setError(error.response.data);
-    }
+    dispatch(addPlace(placeData));
   };
 
   return (
@@ -50,14 +43,11 @@ function AddPlace() {
         <input type="text" name="address" placeholder="Address" value={placeData.address} onChange={handleChange} />
         <br />
         <input type="number" name="pricepernight" placeholder="Price per night" value={placeData.pricepernight} onChange={handleChange} />
-        {' '}
-        {/* Add address input */}
-        {status === 'failed' && (
-        <div className="error-message">
-          Error:
-          {' '}
-          {error}
-        </div>
+        <br />
+        {status === 'failed' && error && (
+          <div className="error-message">
+            {error}
+          </div>
         )}
         {status === 'succeeded' && (
           <div className="success-message">
@@ -68,6 +58,6 @@ function AddPlace() {
       </form>
     </div>
   );
-}
+};
 
 export default AddPlace;
