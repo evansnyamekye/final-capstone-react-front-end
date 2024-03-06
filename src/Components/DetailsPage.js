@@ -43,10 +43,9 @@ function DetailsPage() {
               Location:
               {detailsPage.location}
             </p>
-            <p>
-              Rate:
+            <span className="rate">
               <StarRating rating={detailsPage.rate} />
-            </p>
+            </span>
             <p>
               Address:
               {detailsPage.address}
