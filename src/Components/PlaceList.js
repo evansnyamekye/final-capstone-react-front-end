@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchPlaces } from '../Redux/places/placesSlice';
-
+import { fetchDetailsPage } from '../Redux/places/detailsPageSlice';
 import '../Placelist.css';
 
 function PlacesList() {
@@ -14,6 +15,11 @@ function PlacesList() {
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
+
+  // Fetch details page function
+  const handleViewDetails = (placeId) => {
+    dispatch(fetchDetailsPage(placeId));
+  };
 
   useEffect(() => {
     if (status === 'idle') {
@@ -57,7 +63,7 @@ function PlacesList() {
     <div className="center">
       <h1>Accomodations</h1>
       <h5>Select Accomodations to Reserve</h5>
-      <ul>
+      <ul className="ul-list">
         <button type="button" id="previous" onClick={prevPage} disabled={currentPage === 1}><img src="../images/previous.svg" alt="previous" /></button>
         {currentItems.map((place) => (
           <li key={place.id} className="card">
@@ -78,14 +84,16 @@ function PlacesList() {
             Address:
             {place.address.length > 10 ? `${place.address.substring(0, 30)}...` : place.address}
 
-            <ul className="social-icons">
+            <ul className="social-icons-li">
               <li><a href="https://www.twitter.com/vespa"><img src="https://img.icons8.com/ios/50/000000/twitter.png" alt="twitter-icon" /></a></li>
               <li><a href="https://www.facebook.com/vespa"><img src="https://img.icons8.com/ios/50/000000/facebook.png" alt="facebook-icon" /></a></li>
               <li><a href="https://www.instagram.com/vespa"><img src="https://img.icons8.com/ios/50/000000/google.png" alt="twitter-icon" /></a></li>
               <li><a href="https://www.twitter.com/vespa"><img src="https://img.icons8.com/ios/50/000000/instagram-new.png" alt="instagram-icon" /></a></li>
               <li><a href="https://www.twitter.com/vespa"><img src="https://img.icons8.com/ios/50/000000/p.png" alt="p-icon" /></a></li>
             </ul>
-
+            <button className="view-details" type="submit" onClick={() => handleViewDetails(place.id)}>
+              <Link to={`/layout/detailsPage/${place.id}`}>View Details</Link>
+            </button>
           </li>
         ))}
         <button type="button" id="next" onClick={nextPage} disabled={currentPage === Math.ceil(places.length / itemsPerPage)}><img src="../images/next.svg" alt="next_button" /></button>

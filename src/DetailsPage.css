@@ -1,0 +1,100 @@
+.item-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 2.5s ease;
+  padding: 1rem;
+}
+
+.item-details:hover {
+  border: solid 2px #e2dddd;
+  border-radius: 2rem;
+  transform: scale(1.04);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.main {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80vw;
+}
+
+.image {
+  width: 40vw;
+  height: 70vh;
+}
+
+.title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.price-section {
+  padding: 10px;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.view-details {
+  font-size: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #a8db19;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.price-per-night {
+  background-color: lightgray;
+  padding: 10px;
+  width: 100%;
+}
+
+.add-res-button {
+  font-size: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #a8db19;
+}
+
+/* start of Mobile styles */
+@media only screen and (max-width: 600px) {
+  .main {
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+  }
+
+  .image {
+    width: 90vw;
+    height: auto;
+  }
+
+  .title {
+    font-size: 1.5em;
+  }
+}
+
+/* start of Desktop styles */
+@media only screen and (min-width: 601px) {
+  .main {
+    flex-direction: row;
+    width: 80vw;
+  }
+
+  .image {
+    width: 40vw;
+    height: 70vh;
+  }
+
+  .title {
+    font-size: 2em;
+  }
+}

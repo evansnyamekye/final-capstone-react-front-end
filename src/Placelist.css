@@ -45,31 +45,31 @@ ul {
   justify-content: space-between;
   padding: 0;
   width: 100%;
+}
 
-  li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
+li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
 
-  .social-icons {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
+.social-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
 
-  .social-icons li img {
-    gap: 10px;
-    width: 20px;
-    height: 20px;
-    border: solid 2px #e2dddd;
-    border-radius: 3rem;
-    display: flex;
-    padding: 3px;
-  }
+.social-icons li img {
+  gap: 10px;
+  width: 20px;
+  height: 20px;
+  border: solid 2px #e2dddd;
+  border-radius: 3rem;
+  display: flex;
+  padding: 3px;
 }
 
 #previous {
@@ -82,11 +82,11 @@ ul {
   color: #000;
   display: flex;
   align-self: center;
+}
 
-  img {
-    width: 50px;
-    height: 50px;
-  }
+#previous img {
+  width: 50px;
+  height: 50px;
 }
 
 #previous:hover {
@@ -105,11 +105,11 @@ ul {
   color: #000;
   display: flex;
   align-self: center;
+}
 
-  img {
-    width: 50px;
-    height: 50px;
-  }
+#next img {
+  width: 50px;
+  height: 50px;
 }
 
 #next:hover {
@@ -132,4 +132,86 @@ ul {
   font-size: larger;
   transition: 2.5s;
   cursor: pointer;
+}
+
+/* start of Mobile styles */
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h5 {
+    font-size: 0.8rem;
+  }
+
+  .ul-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 90%;
+  }
+
+  .place-img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .social-icons-li {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .social-icons-li img {
+    width: 15px;
+    height: auto;
+  }
+
+  #previous,
+  #next {
+    padding: 5px;
+  }
+
+  #previous img,
+  #next img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .pagination button {
+    padding: 5px;
+  }
+}
+
+/* start of Desktop styles */
+@media only screen and (min-width: 601px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h5 {
+    font-size: 1rem;
+  }
+
+  .place-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  #previous,
+  #next {
+    padding: 10px;
+  }
+
+  #previous img,
+  #next img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .pagination button {
+    padding: 10px;
+  }
 }
