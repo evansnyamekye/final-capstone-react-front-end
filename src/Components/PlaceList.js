@@ -6,7 +6,7 @@ import { fetchPlaces } from '../Redux/places/placesSlice';
 import { fetchDetailsPage } from '../Redux/places/detailsPageSlice';
 import '../Placelist.css';
 
-function PlacesList() {
+const PlacesList = () => {
   const dispatch = useDispatch();
   const places = useSelector((state) => state.places.places);
   const status = useSelector((state) => state.places.status);
@@ -108,7 +108,7 @@ function PlacesList() {
       </div>
     </div>
   );
-}
+};
 
 const StarRating = ({ rating }) => {
   const stars = Array.from({ length: 5 }, (_, index) => (
