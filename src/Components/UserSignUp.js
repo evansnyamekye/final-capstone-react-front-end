@@ -7,30 +7,30 @@ function UserSignUp() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log('Form data:', { name, email, password });
     try {
-      console.log('Submitting form...');
-      const response = await axios.post('http://localhost:3000/users', {
+      await axios.post('http://localhost:3000/users', {
         user: {
           name,
           email,
           password,
         },
       });
-      console.log('Response:', response.data);
       navigate('/');
     } catch (error) {
-      console.log('Error:', error.response.data);
-      console.error('Axios error:', error);
+      setErrorMessage('Invalid Email or password.');
     }
   };
+
   return (
     <>
       <h1>Sign Up</h1>
+      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+      {' '}
       <form onSubmit={handleSubmit}>
         <input className="mail-border" type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
         <br />

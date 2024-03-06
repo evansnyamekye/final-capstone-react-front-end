@@ -188,6 +188,6 @@ Also I would like to thank [Murat Korkmaz](https://www.behance.net/muratk) on Be
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/tsheporamantso/final-capstone-react-front-end/blob/1012050f1dd1a177d317f0a8c3b90ab76d956a7f/LICENSE) licensed.
+This project is [MIT](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
