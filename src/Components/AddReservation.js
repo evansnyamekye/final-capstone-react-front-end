@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addReservation } from '../Redux/reservations/addReservationsSlice';
 import '../AddReservation.css';
 
-function AddReservation() {
+const AddReservation = () => {
   const dispatch = useDispatch();
   const userId = localStorage.getItem('userId');
 
@@ -65,6 +65,13 @@ function AddReservation() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Check if any required field is empty
+    if (!reservationData.start_date || !reservationData.end_date || !reservationData.place_id) {
+      setErrorMessage('Please fill out all fields');
+      return;
+    }
+
     dispatch(addReservation(reservationData)).then(() => {
       setReservationData(initialReservationData);
     });
@@ -115,6 +122,6 @@ function AddReservation() {
       <button className="link-btn-li" type="submit" onClick={handleSubmit} disabled={status === 'loading'}>Add Reservation</button>
     </div>
   );
-}
+};
 
 export default AddReservation;
