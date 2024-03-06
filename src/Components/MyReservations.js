@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchReservations, removeReservation } from '../Redux/reservations/myReservationsSlice';
 import '../MyReservations.css';
 
-function MyReservations() {
+const MyReservations = () => {
   const dispatch = useDispatch();
   const reservations = useSelector((state) => state.myReservations.reservations);
   const status = useSelector((state) => state.myReservations.status);
@@ -73,6 +73,6 @@ function MyReservations() {
       )}
     </div>
   );
-}
+};
 
 export default MyReservations;
