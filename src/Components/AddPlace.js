@@ -25,6 +25,12 @@ const AddPlace = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const values = Object.values(placeData);
+    if (values.some((value) => !value)) {
+      alert('Please fill in all fields');
+      return;
+    }
     dispatch(addPlace(placeData));
   };
 
@@ -38,11 +44,11 @@ const AddPlace = () => {
         <br />
         <input type="text" name="location" placeholder="Location" value={placeData.location} onChange={handleChange} />
         <br />
-        <input type="number" name="rate" placeholder="Rate" value={placeData.rate} onChange={handleChange} />
+        <input type="number" name="rate" placeholder="Rate" min="1" max="5" value={placeData.rate} onChange={handleChange} />
         <br />
         <input type="text" name="address" placeholder="Address" value={placeData.address} onChange={handleChange} />
         <br />
-        <input type="number" name="pricepernight" placeholder="Price per night" value={placeData.pricepernight} onChange={handleChange} />
+        <input type="number" name="pricepernight" step="0.01" placeholder="Price per night" value={placeData.pricepernight} onChange={handleChange} />
         <br />
         {status === 'failed' && error && (
           <div className="error-message">
