@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addPlace } from '../Redux/places/addPlaceSlice';
+import { fetchPlaces } from '../Redux/places/placesSlice';
 import '../AddPlace.css';
 
 const AddPlace = () => {
@@ -31,7 +32,8 @@ const AddPlace = () => {
       alert('Please fill in all fields');
       return;
     }
-    dispatch(addPlace(placeData));
+    dispatch(addPlace(placeData))
+      .then(() => dispatch(fetchPlaces()));
   };
 
   return (
