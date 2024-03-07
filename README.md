@@ -16,6 +16,7 @@
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
   - [🚀 Live Demo ](#-live-demo-)
+  - [ :clipboard:Kanban board ](#-kanban-board-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -64,6 +65,20 @@
 - Coming soon.
 
 - [Link](https://github.com/tsheporamantso/final-capstone-rails-api) to Stay Sphere back-end repository
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 📋 Kanban Board <a name="kanban-board"></a>
+
+[Link](https://github.com/users/tsheporamantso/projects/14) to Kanban board
+
+[Link](https://github.com/tsheporamantso/final-capstone-rails-api/issues/5) to initial kanban board state
+
+We are a team of three:
+
+-  👤 **Gladwin Tshepo Ramantso**
+-  👤 **George Hamman**
+-  👤 **Evans Kofi Nyamekye**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
