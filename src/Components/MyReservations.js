@@ -57,7 +57,7 @@ const MyReservations = () => {
                 <p>
                   <strong>Price:$</strong>
                   {' '}
-                  {reservation.price}
+                  {typeof reservation.price === 'string' ? parseFloat(reservation.price).toFixed(2) : reservation.price}
                 </p>
                 <button
                   type="button"
