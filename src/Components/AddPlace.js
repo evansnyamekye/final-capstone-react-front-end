@@ -19,6 +19,7 @@ const AddPlace = () => {
     user_id: localStorage.getItem('userId'),
   };
   const [placeData, setPlaceData] = useState(initialPlaceData);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     setPlaceData({ ...placeData, [e.target.name]: e.target.value });
@@ -29,7 +30,10 @@ const AddPlace = () => {
 
     const values = Object.values(placeData);
     if (values.some((value) => !value)) {
-      alert('Please fill in all fields');
+      setErrorMessage('Please fill in all fields');
+      setTimeout(() => {
+        setErrorMessage('');
+      }, 5000); // Clear error message after 5 seconds
       return;
     }
     dispatch(addPlace(placeData))
@@ -40,6 +44,7 @@ const AddPlace = () => {
     <div className="form-container">
       <h2>Add Place</h2>
       <form onSubmit={handleSubmit}>
+        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
         <input type="text" name="description" placeholder="Description" value={placeData.description} onChange={handleChange} />
         <br />
         <input type="text" name="photo" placeholder="Photo URL" value={placeData.photo} onChange={handleChange} />
