@@ -6,7 +6,7 @@ import { fetchDetailsPage } from '../Redux/places/detailsPageSlice';
 import '../Placelist.css';
 import '../DetailsPage.css';
 
-function DetailsPage() {
+const DetailsPage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const detailsPage = useSelector((state) => state.detailsPage.detailsPage);
@@ -52,7 +52,7 @@ function DetailsPage() {
             </p>
             <p className="price-per-night">
               Price per night:$
-              {detailsPage.pricepernight}
+              {typeof detailsPage.pricepernight === 'string' ? parseFloat(detailsPage.pricepernight).toFixed(2) : detailsPage.pricepernight}
             </p>
             <Link to="/layout/addReservation">
               <button className="add-res-button" type="button">Add Reservation</button>
@@ -61,9 +61,8 @@ function DetailsPage() {
         </div>
       </div>
     </>
-
   );
-}
+};
 
 const StarRating = ({ rating }) => {
   const stars = Array.from({ length: 5 }, (_, index) => (
@@ -73,7 +72,6 @@ const StarRating = ({ rating }) => {
   return <div>{stars}</div>;
 };
 
-// Prop types validation for StarRating component
 StarRating.propTypes = {
   rating: PropTypes.number.isRequired,
 };

@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { addPlace } from '../Redux/places/addPlaceSlice';
+import { fetchPlaces } from '../Redux/places/placesSlice';
 import '../AddPlace.css';
 
-function AddPlace() {
+const AddPlace = () => {
+  const dispatch = useDispatch();
+  const status = useSelector((state) => state.addPlace.status);
+  const error = useSelector((state) => state.addPlace.error);
+
   const initialPlaceData = {
     description: '',
     photo: '',
@@ -13,51 +19,48 @@ function AddPlace() {
     user_id: localStorage.getItem('userId'),
   };
   const [placeData, setPlaceData] = useState(initialPlaceData);
-  const [status, setStatus] = useState('idle');
-  const [error, setError] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     setPlaceData({ ...placeData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setStatus('loading');
 
-    try {
-      const userId = localStorage.getItem('userId');
-      await axios.post(`http://localhost:3000/api/v1/users/${userId}/places`, placeData);
-      setStatus('succeeded');
-      setPlaceData(initialPlaceData);
-    } catch (error) {
-      setStatus('failed');
-      setError(error.response.data);
+    const values = Object.values(placeData);
+    if (values.some((value) => !value)) {
+      setErrorMessage('Please fill in all fields');
+      setTimeout(() => {
+        setErrorMessage('');
+      }, 5000); // Clear error message after 5 seconds
+      return;
     }
+    dispatch(addPlace(placeData))
+      .then(() => dispatch(fetchPlaces()));
   };
 
   return (
     <div className="form-container">
       <h2>Add Place</h2>
       <form onSubmit={handleSubmit}>
+        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
         <input type="text" name="description" placeholder="Description" value={placeData.description} onChange={handleChange} />
         <br />
         <input type="text" name="photo" placeholder="Photo URL" value={placeData.photo} onChange={handleChange} />
         <br />
         <input type="text" name="location" placeholder="Location" value={placeData.location} onChange={handleChange} />
         <br />
-        <input type="number" name="rate" placeholder="Rate" value={placeData.rate} onChange={handleChange} />
+        <input type="number" name="rate" placeholder="Rate" min="1" max="5" value={placeData.rate} onChange={handleChange} />
         <br />
         <input type="text" name="address" placeholder="Address" value={placeData.address} onChange={handleChange} />
         <br />
-        <input type="number" name="pricepernight" placeholder="Price per night" value={placeData.pricepernight} onChange={handleChange} />
-        {' '}
-        {/* Add address input */}
-        {status === 'failed' && (
-        <div className="error-message">
-          Error:
-          {' '}
-          {error}
-        </div>
+        <input type="number" name="pricepernight" step="0.01" placeholder="Price per night" value={placeData.pricepernight} onChange={handleChange} />
+        <br />
+        {status === 'failed' && error && (
+          <div className="error-message">
+            {error}
+          </div>
         )}
         {status === 'succeeded' && (
           <div className="success-message">
@@ -68,6 +71,6 @@ function AddPlace() {
       </form>
     </div>
   );
-}
+};
 
 export default AddPlace;

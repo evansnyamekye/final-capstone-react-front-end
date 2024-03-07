@@ -20,6 +20,31 @@
   margin: 10px;
 }
 
+.confirmation-dialog {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px;
+}
+
+#deleteyes {
+  background-color: hsl(0, 80%, 48%);
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#deleteno {
+  background-color: hsl(144, 80%, 48%);
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
   .delete-place-container {
     display: flex;
