@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteItem } from '../Redux/places/deleteItemSlice';
+import { fetchPlaces } from '../Redux/places/placesSlice';
 import '../DeleteItem.css';
 
 const DeletePlace = () => {
   const dispatch = useDispatch();
   const places = useSelector((state) => state.places.places);
   const status = useSelector((state) => state.deleteItem.status);
+  const error = useSelector((state) => state.deleteItem.error);
+
+  useEffect(() => {
+    dispatch(fetchPlaces());
+  }, [dispatch]);
 
   const handleDelete = (id) => {
-    dispatch(deleteItem(id));
+    dispatch(deleteItem(id))
+      .then(() => {
+        // Fetch places again after successful deletion
+        dispatch(fetchPlaces());
+      });
   };
 
   if (places.length === 0) {
@@ -24,7 +34,7 @@ const DeletePlace = () => {
     return (
       <div>
         Error:
-        {status.error}
+        {error}
       </div>
     );
   }
