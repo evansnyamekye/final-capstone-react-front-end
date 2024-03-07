@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addReservation } from '../Redux/reservations/addReservationsSlice';
+import { fetchPlaces } from '../Redux/places/placesSlice';
 import '../AddReservation.css';
 
 const AddReservation = () => {
@@ -16,28 +17,18 @@ const AddReservation = () => {
   };
 
   const [reservationData, setReservationData] = useState(initialReservationData);
-  const [places, setPlaces] = useState([]);
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [numberOfDays, setNumberOfDays] = useState(0);
   const status = useSelector((state) => state.addReservation.status);
   const error = useSelector((state) => state.addReservation.error);
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const fetchPlaces = async (userId) => {
-    try {
-      const response = await fetch(`http://localhost:3000/api/v1/users/${userId}/places`);
-      const data = await response.json();
-      setPlaces(data);
-    } catch (error) {
-      setErrorMessage('Invalid Email or password.');
-    }
-  };
+  const places = useSelector((state) => state.places.places);
+  const [errorMessage] = useState('');
 
   useEffect(() => {
     if (userId) {
-      fetchPlaces(userId);
+      dispatch(fetchPlaces(userId));
     }
-  }, [userId]);
+  }, [userId, dispatch]);
 
   useEffect(() => {
     if (reservationData.start_date && reservationData.end_date && selectedPlace) {
@@ -47,7 +38,7 @@ const AddReservation = () => {
       setNumberOfDays(daysDifference);
       setReservationData((prevState) => ({
         ...prevState,
-        price: daysDifference * selectedPlace.pricepernight,
+        price: (daysDifference * parseFloat(selectedPlace.pricepernight)).toFixed(2),
       }));
     }
   }, [reservationData.start_date, reservationData.end_date, selectedPlace, reservationData]);
@@ -68,7 +59,7 @@ const AddReservation = () => {
 
     // Check if any required field is empty
     if (!reservationData.start_date || !reservationData.end_date || !reservationData.place_id) {
-      setErrorMessage('Please fill out all fields');
+      alert('Please fill in all fields');
       return;
     }
 
@@ -90,9 +81,9 @@ const AddReservation = () => {
       <br />
       <input type="date" name="end_date" placeholder="End Date" value={reservationData.end_date} onChange={handleChange} />
       <br />
-      <input type="number" name="price_per_night" placeholder="Price Per Night" value={selectedPlace ? selectedPlace.pricepernight : ''} disabled />
+      <input type="number" name="price_per_night" placeholder="Price Per Night" value={selectedPlace ? parseFloat(selectedPlace.pricepernight).toFixed(2) : ''} disabled />
       <br />
-      <input type="number" name="price" placeholder="Total Bill" value={reservationData.price || ''} disabled />
+      <input type="number" name="price" placeholder="Total Bill" value={parseFloat(reservationData.price).toFixed(2) || ''} disabled />
       <br />
       <select name="place_id" value={reservationData.place_id} onChange={handleChange}>
         <option value="">Select a place</option>
