@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addReservation } from '../Redux/reservations/addReservationsSlice';
 import { fetchPlaces } from '../Redux/places/placesSlice';
+import { fetchReservations } from '../Redux/reservations/myReservationsSlice';
 import '../AddReservation.css';
 
 const AddReservation = () => {
@@ -63,9 +64,8 @@ const AddReservation = () => {
       return;
     }
 
-    dispatch(addReservation(reservationData)).then(() => {
-      setReservationData(initialReservationData);
-    });
+    dispatch(addReservation(reservationData))
+      .then(() => dispatch(fetchReservations()));
   };
 
   return (
