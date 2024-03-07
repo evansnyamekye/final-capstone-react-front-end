@@ -23,7 +23,7 @@ const AddReservation = () => {
   const status = useSelector((state) => state.addReservation.status);
   const error = useSelector((state) => state.addReservation.error);
   const places = useSelector((state) => state.places.places);
-  const [errorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     if (userId) {
@@ -58,7 +58,10 @@ const AddReservation = () => {
     e.preventDefault();
 
     if (!reservationData.start_date || !reservationData.end_date || !reservationData.place_id) {
-      alert('Please fill in all fields');
+      setErrorMessage('Please fill in all fields');
+      setTimeout(() => {
+        setErrorMessage('');
+      }, 5000);
       return;
     }
 
