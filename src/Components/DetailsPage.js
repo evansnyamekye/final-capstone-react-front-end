@@ -52,7 +52,7 @@ const DetailsPage = () => {
             </p>
             <p className="price-per-night">
               Price per night:$
-              {detailsPage.pricepernight}
+              {typeof detailsPage.pricepernight === 'string' ? parseFloat(detailsPage.pricepernight).toFixed(2) : detailsPage.pricepernight}
             </p>
             <Link to="/layout/addReservation">
               <button className="add-res-button" type="button">Add Reservation</button>
