@@ -6,17 +6,15 @@ import { fetchPlaces } from '../Redux/places/placesSlice';
 import { fetchDetailsPage } from '../Redux/places/detailsPageSlice';
 import '../Placelist.css';
 
-function PlacesList() {
+const PlacesList = () => {
   const dispatch = useDispatch();
   const places = useSelector((state) => state.places.places);
   const status = useSelector((state) => state.places.status);
   const error = useSelector((state) => state.places.error);
 
-  // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
 
-  // Fetch details page function
   const handleViewDetails = (placeId) => {
     dispatch(fetchDetailsPage(placeId));
   };
@@ -40,7 +38,6 @@ function PlacesList() {
     );
   }
 
-  // Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = places.slice(indexOfFirstItem, indexOfLastItem);
@@ -70,8 +67,8 @@ function PlacesList() {
             <h3>{place.description}</h3>
             <img className="place-img" src={place.photo} alt={place.description} />
             <div>
-              Price Per Night:$
-              {place.pricepernight}
+              Price Per Night: $
+              {typeof place.pricepernight === 'string' ? parseFloat(place.pricepernight).toFixed(2) : place.pricepernight}
             </div>
             <div>
               Location:
@@ -108,7 +105,7 @@ function PlacesList() {
       </div>
     </div>
   );
-}
+};
 
 const StarRating = ({ rating }) => {
   const stars = Array.from({ length: 5 }, (_, index) => (
@@ -118,7 +115,6 @@ const StarRating = ({ rating }) => {
   return <div>{stars}</div>;
 };
 
-// Prop types validation for StarRating component
 StarRating.propTypes = {
   rating: PropTypes.number.isRequired,
 };

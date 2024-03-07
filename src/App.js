@@ -11,7 +11,7 @@ import AddPlace from './Components/AddPlace';
 import AddReservation from './Components/AddReservation';
 import DeletePlace from './Components/DeletePlace';
 
-function App() {
+const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -42,6 +42,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;

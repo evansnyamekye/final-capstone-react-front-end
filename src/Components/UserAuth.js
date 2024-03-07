@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../Sign-In.css';
 
-function UserAuth({ setLoggedIn }) {
+const UserAuth = ({ setLoggedIn }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -53,7 +53,7 @@ function UserAuth({ setLoggedIn }) {
       </form>
     </>
   );
-}
+};
 
 UserAuth.propTypes = {
   setLoggedIn: PropTypes.func.isRequired,
