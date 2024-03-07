@@ -70,8 +70,8 @@ const PlacesList = () => {
             <h3>{place.description}</h3>
             <img className="place-img" src={place.photo} alt={place.description} />
             <div>
-              Price Per Night:$
-              {place.pricepernight}
+              Price Per Night: $
+              {typeof place.pricepernight === 'string' ? parseFloat(place.pricepernight).toFixed(2) : place.pricepernight}
             </div>
             <div>
               Location:
