@@ -12,7 +12,6 @@ const PlacesList = () => {
   const status = useSelector((state) => state.places.status);
   const error = useSelector((state) => state.places.error);
 
-  // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
 
