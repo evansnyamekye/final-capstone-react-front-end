@@ -16,7 +16,6 @@ const PlacesList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
 
-  // Fetch details page function
   const handleViewDetails = (placeId) => {
     dispatch(fetchDetailsPage(placeId));
   };
@@ -40,7 +39,6 @@ const PlacesList = () => {
     );
   }
 
-  // Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = places.slice(indexOfFirstItem, indexOfLastItem);
@@ -118,7 +116,6 @@ const StarRating = ({ rating }) => {
   return <div>{stars}</div>;
 };
 
-// Prop types validation for StarRating component
 StarRating.propTypes = {
   rating: PropTypes.number.isRequired,
 };

@@ -5,9 +5,7 @@ import Navigation from './Navigation';
 const Layout = () => (
   <div className="container">
     <Navigation />
-    {/* Start of Main Content */}
     <Outlet />
-    {/* End of Main Content */}
   </div>
 );
 

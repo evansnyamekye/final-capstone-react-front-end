@@ -48,7 +48,6 @@ const AddReservation = () => {
     const { name, value } = e.target;
     setReservationData({ ...reservationData, [name]: value });
 
-    // Find the selected place and update the selectedPlace state
     if (name === 'place_id') {
       const selected = places.find((place) => place.id === parseInt(value, 10));
       setSelectedPlace(selected);
@@ -58,7 +57,6 @@ const AddReservation = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Check if any required field is empty
     if (!reservationData.start_date || !reservationData.end_date || !reservationData.place_id) {
       alert('Please fill in all fields');
       return;

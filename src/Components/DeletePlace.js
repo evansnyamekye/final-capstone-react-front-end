@@ -17,7 +17,6 @@ const DeletePlace = () => {
   const handleDelete = (id) => {
     dispatch(deleteItem(id))
       .then(() => {
-        // Fetch places again after successful deletion
         dispatch(fetchPlaces());
       });
   };

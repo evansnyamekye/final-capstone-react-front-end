@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const Navigation = () => (
   <nav className="container">
-    {/* Start of Left Sidebar */}
     <div className="sidebar left-sidebar">
       <div className="header-tabs-container">
         <div className="header">
@@ -45,9 +44,7 @@ const Navigation = () => (
           </ul>
         </div>
       </div>
-      {/* End of Header and Tabs Container */}
 
-      {/* Start of Social-Icons */}
       <div className="social-icons">
         <ul>
           <li><a href="https://www.twitter.com/vespa"><img id="social-img" src="https://img.icons8.com/ios/50/000000/twitter.png" alt="twitter-icon" /></a></li>
@@ -58,7 +55,6 @@ const Navigation = () => (
         </ul>
         <p className="copyright">&copy; 2024 STAYSPARE HOTELS - CALIFORNIA</p>
       </div>
-      {/* End of Social-Icons */}
     </div>
 
     <div className="Center" />

@@ -72,7 +72,6 @@ const StarRating = ({ rating }) => {
   return <div>{stars}</div>;
 };
 
-// Prop types validation for StarRating component
 StarRating.propTypes = {
   rating: PropTypes.number.isRequired,
 };
